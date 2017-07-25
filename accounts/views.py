@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect,HttpResponse,render_to_response
+from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth import logout
 from accounts.forms import *
 from accounts.models import *
@@ -423,7 +423,7 @@ def sendEmail(request):
     pdf = main_doc.write_pdf()
 
 
-    email = EmailMessage('Resume', request.user , to=[request.user.email])
+    email = EmailMessage('Resume', 'hello','Anurag Harsh' , to=[request.user.email])
     try:
 
         email.attach('Resume',pdf,'application/pdf')

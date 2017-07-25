@@ -25,15 +25,13 @@ SECRET_KEY = 'fus8xc@s^t#@a%+8=^2slc(lx2sq^n#-9akgvh4+jzkbkhjnu$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['anurag3feb.pythonanywhere.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'accounts',
-    'django-dia',
-    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,6 +133,3 @@ EMAIL_HOST_USER = 'anuragharsh95@gmail.com'
 EMAIL_HOST_PASSWORD = '*******'
 
 EMAIL_USE_TLS = True
-
-
-
