@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+<form class="container" method="post">
+
+{{ formset.management_form }}
+
+    {% for form in formset.forms %}
+    <h2>Update Details</h2>
+    {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" >Save</button>
+    {% endfor %}
+
+</form>
+{% endblock %}

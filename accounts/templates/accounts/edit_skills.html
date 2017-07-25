@@ -1,0 +1,12 @@
+
+<form method="post">
+
+{{ formset.management_form }}
+
+    {% for form in formset.forms %}
+    {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" >Save</button>
+    {% endfor %}
+
+</form>

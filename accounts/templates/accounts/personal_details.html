@@ -1,0 +1,243 @@
+<html>
+
+<head>
+    <style>
+        @page{
+        size: A4;
+        margin: 1cm;}
+        .container
+        {
+        display: inline-block;
+
+
+        width: 100%;
+        height: auto;
+        }
+
+        .left_container
+            {
+
+
+                width: 150px;
+                height: auto;
+                padding: 20px 20px;
+                display: inline-block;
+                margin-right: 50px;
+                position: relative;
+                float: left;
+            }
+        .right_container
+            {
+
+
+                width: 400px;
+                height: auto;
+                margin-top: 5px ;
+                display: inline-block;
+                padding: 20px 20px;
+                position: relative;
+                float: left;
+
+            }
+        .skill_container
+            {
+
+
+                width: 150px;
+                height: auto;
+                margin-top: 5px ;
+                display: block;
+                padding: 5px 5px;
+                position: relative;
+                float: left;
+
+            }
+
+        .top_container
+            {
+
+                display: block;
+                width: auto;
+                margin-left: 20px;
+
+            }
+
+        .img_container
+            {
+                height: 20px;
+                width: 20px;
+
+            }
+
+
+
+    </style>
+</head>
+
+
+{% block body %}
+<div class="top_container">
+
+    {{ personalObj.name }}<br>
+    Email:{{ personalObj.email }}<br>
+    Conatct No:{{ personalObj.contact_no }}<br>
+    Location:{{ personalObj.location }}<br>
+    {% load static %}
+    <a href="/account/personal"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+</div>
+<hr>
+<div class="container">
+    <div class="left_container"><h4>Education</h4></div>
+
+    <div class="right_container"><h4>Secondary</h4>
+
+
+    {% if secondaryObj is not defined %}
+    {% for i in secondaryObj  %}
+    {{ i.schoolName }}<br>
+    {{ i.board }}<br>
+    {{ i.cgpa }}<br>
+    {{ i.year }}<br>
+
+        {% endfor %}
+        {% load static %}
+        <br><a href="/account/secondary"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+        {% else %}
+<br><a href="/account/secondary">Add Details</a>
+        {% endif %}
+<br><h4>Senior Secondary</h4>
+    {% if ssObj is not defined %}
+    {% for j in ssObj  %}
+    {{j.schoolName}}<br>
+    {{j.board}}<br>
+    {{j.cgpa}}<br>
+    {{j.year}}<br>
+    {{j.stream}}<br>
+{% endfor %}
+        {% load static %}
+<a href="/account/senior_secondary"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+{% else %}
+<br><a href="/account/senior_secondary">Add Details</a>
+        {% endif %}
+    <h4>Graduation</h4>
+         {% if graduationObj is not defined %}
+{% for i in graduationObj  %}
+
+    {{ i.schoolName }}<br>
+    {{ i.board }}<br>
+    {{ i.cgpa }}<br>
+    {{ i.year }}<br>
+    {{ i.course }}<br>
+    {{ i.stream }}<br>
+
+{% endfor %}
+        {% load static %}
+<br><a href="/account/graduation"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+{% else %}
+<br><a href="/account/graduation">Add Details</a>
+        {% endif %}
+    </div>
+</div>
+<hr>
+
+<div class="container">
+    <div class="left_container"><h4>Internships</h4></div>
+    {% if internshipObj is not defined %}
+
+    <div class="right_container">
+    {% for i in internshipObj %}<br>
+        {{i.profile}}<br>
+        {{i.organisation}}<br>
+    {{i.duration}}<br>
+    {{i.description}}<br>
+
+    {% endfor %}
+        {% load static %}
+<a href="/account/edit_internships"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+    </div>
+    {% else %}
+<div class="right_container"><a href="/account/internships">Add Details</a></div>
+
+    {% endif %}
+
+</div>
+<hr>
+<div class="container" >
+<div class="left_container"><h4>Skills</h4></div>
+    {% if skillsObj is not defined %}
+
+
+
+<div class="right_container">
+    <ul>
+                {% for i in skillsObj %}
+
+        <div class="skill_container"><li>{{i.skill}}</li></div>
+                {% endfor %}<br>
+        </ul>
+                {% load static %}
+<a href="/account/edit_skills"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a><br></a>
+
+</div>
+{% else %}
+    {% load static %}
+<a href="/account/skills"><<img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a><br>
+
+    {% endif %}
+</div>
+
+
+<hr>
+
+<div class="container" >
+<div class="left_container"><h4>Projects</h4></div>
+    {% if projectObj is not defined %}
+
+
+
+<div class="right_container">
+                {% for i in projectObj %}<br>
+
+                    {{i.Name}}<br>
+                    {{i.duration}}<br>
+                    {{i.description}}<br>
+                {% endfor %}<br>
+                <br><a href="/account/edit_projects"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a><br>
+            </div>
+
+{% else %}
+<br><a href="/account/projects">Add Details</a><br>
+
+    {% endif %}
+</div>
+
+<hr>
+
+<div class="container">
+    <div class="left_container"><h4>Jobs</h4></div>
+    {% if jobObj is not defined %}
+
+
+
+
+                {% for i in jobObj %}
+                <div class="right_container">
+                    {{i.profile}}<br>
+                    {{i.organisation}}<br>
+                    {{i.duration}}<br>
+                    {{i.description}}<br>
+                {% endfor %}
+{% load static %}
+
+    <a href="/account/edit_jobs"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+    {% else %}
+<a href="/account/jobs">Add Details</a><br>
+
+    {% endif %}
+</div>
+    </div>
+<hr>
+<div><a href="/account/generate/">Generate</a><br>
+<a href="/account/mail/">Send Mail</a><br>
+</div>
+    {% endblock %}

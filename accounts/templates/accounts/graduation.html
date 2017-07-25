@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h2>Graduation Form</h2>
+<form method='post'>
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit' >Submit</button>
+
+</form>
+
+</div>
+<a href="/account/internships/">Next</a>
+
+{% endblock %}

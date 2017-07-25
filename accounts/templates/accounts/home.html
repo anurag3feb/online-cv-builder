@@ -1,0 +1,23 @@
+{%  extends 'base.html'%}
+<html>
+<head>
+{% block head %}
+<title>
+Home
+</title>
+{% endblock %}
+</head>
+<body>
+  {% block body %}
+  <h1>Home</h1>
+  <h2>
+  <ul>
+  {% for i in list %}
+  <li>{{i}}</li>
+  {% endfor %}
+</h2>
+
+</ul>
+ {% endblock %}
+
+</body>

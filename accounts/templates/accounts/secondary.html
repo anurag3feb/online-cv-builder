@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h2>Secondary Form</h2>
+<form method='post'>
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit' >Submit</button>
+
+</form>
+
+</div>
+<a href="/account/senior_secondary/">Next</a>
+
+{% endblock %}

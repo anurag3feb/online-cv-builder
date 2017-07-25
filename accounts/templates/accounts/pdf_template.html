@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    <style>
+        @page{
+        size: A4;
+        margin: 1cm;}
+        .container
+        {
+        display: inline-block;
+
+
+        width: 100%;
+        height: auto;
+        }
+
+        .left_container
+            {
+
+
+                width: 150px;
+                height: auto;
+                padding: 20px 20px;
+                display: inline-block;
+                margin-right: 50px;
+                position: relative;
+                float: left;
+            }
+        .right_container
+            {
+
+
+                width: 400px;
+                height: auto;
+                margin-top: 5px ;
+                display: inline-block;
+                padding: 20px 20px;
+                position: relative;
+                float: left;
+
+            }
+        .top_container
+            {
+
+                display: block;
+                width: auto;
+                margin-left: 20px;
+
+            }
+
+
+    </style>
+</head>
+
+
+{% block body %}
+<div class="top_container">
+
+    {{ personalObj.name }}<br>
+    Email:{{ personalObj.email }}<br>
+    Conatct No:{{ personalObj.contact_no }}<br>
+    Location:{{ personalObj.location }}<br>
+</div>
+
+<div class="container">
+    <div class="left_container"><h4>Education</h4></div>
+
+    <div class="right_container"><h4>Secondary</h4>
+
+    {% for i in secondaryObj  %}
+    {{ i.schoolName }}<br>
+    {{ i.board }}<br>
+    {{ i.cgpa }}<br>
+    {{ i.year }}<br>
+
+    {% endfor %}
+
+
+    {% for j in ssObj  %}
+
+    <h4>Senior Secondary</h4>
+
+    {{j.schoolName}}<br>
+    {{j.board}}<br>
+    {{j.cgpa}}<br>
+    {{j.year}}<br>
+    {{j.stream}}<br>
+{% endfor %}
+
+
+    <h4>Graduation</h4>
+{% for i in graduationObj  %}
+
+    {{ i.schoolName }}<br>
+    {{ i.board }}<br>
+    {{ i.cgpa }}<br>
+    {{ i.year }}<br>
+    {{ i.course }}<br>
+    {{ i.stream }}<br>
+
+{% endfor %}
+
+
+    </div>
+</div>
+
+
+
+    {% if internshipObj is not defined %}
+    <div class="container">
+    <div class="left_container"><h4>Internships</h4></div>
+    <div class="right_container">
+    {% for i in internshipObj %}<br>
+    {{i.organisation}}<br>
+    {{i.role}}<br>
+    {{i.year}}<br>
+
+    {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+
+
+
+
+    {% if projectObj is not defined %}
+
+        <div class="container" >
+            <div class="left_container"><h4>Projects</h4></div>
+            <div class="right_container">
+                {% for i in projectObj %}
+                    {{i.role}}<br>
+                    {{i.location}}<br>
+                    {{i.description}}<br>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% endif %}
+
+
+
+
+
+    {% if jobObj is not defined %}
+
+        <div class="container" style=" display: block;">
+            <div class="left_container"><h4>Jobs</h4></div>
+            <div class="right_container">
+                {% for i in jobObj %}
+                    {{i.role}}<br>
+                    {{i.organisation}}<br>
+                    {{i.year}}<br>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}
