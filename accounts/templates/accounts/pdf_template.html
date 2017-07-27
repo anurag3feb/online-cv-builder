@@ -17,7 +17,7 @@
         .left_container
             {
 
-
+                color: #287aff;
                 width: 150px;
                 height: auto;
                 padding: 20px 20px;
@@ -32,7 +32,7 @@
 
                 width: 400px;
                 height: auto;
-                margin-top: 5px ;
+
                 display: inline-block;
                 padding: 20px 20px;
                 position: relative;
@@ -52,7 +52,7 @@
             {
 
 
-                width: 100px;
+                width: 150px;
                 height: auto;
                 margin-top: 2.5px ;
                 display: block;
@@ -66,67 +66,78 @@
     </style>
 </head>
 
-
+<body>
 {% block body %}
 <div class="top_container">
 
-    {{ personalObj.name }}<br>
-    Email:{{ personalObj.email }}<br>
-    Conatct No:{{ personalObj.contact_no }}<br>
-    Location:{{ personalObj.location }}
+    <h3>{{ personalObj.name }}</h3>
+    {{ personalObj.email }}<br>
+    {{ personalObj.contact_no }}<br>
+    {{ personalObj.location }}
 
 </div>
+<br>
 <hr>
+
 <div class="container">
     <div class="left_container"><h4>Education</h4></div>
 
-    <div class="right_container"><h4>Secondary</h4>
+    <div class="right_container"><h4>Secondary (X)</h4>
 
 
     {% if secondaryObj is not defined %}
     {% for i in secondaryObj  %}
     {{ i.schoolName }}<br>
     {{ i.board }}<br>
-    {{ i.cgpa }}<br>
-    {{ i.year }}<br>
+    Year: {{ i.year }}<br>
+        CGPA: {{ i.cgpa }}<br>
+
 
         {% endfor %}
         {% endif %}
-<br><h4>Senior Secondary</h4>
+<br><h4>Senior Secondary (XII)</h4>
     {% if ssObj is not defined %}
     {% for j in ssObj  %}
-    {{j.schoolName}}<br>
-    {{j.board}}<br>
-    {{j.cgpa}}<br>
-    {{j.year}}<br>
     {{j.stream}}<br>
+        {{j.schoolName}}<br>
+    {{j.board}}<br>
+    Year: {{j.year}}<br>
+        CGPA: {{j.cgpa}}<br>
+
+
 {% endfor %}
         {% endif %}
     <h4>Graduation</h4>
          {% if graduationObj is not defined %}
 {% for i in graduationObj  %}
-
+{{ i.course }}<br>
+        {{ i.stream }}<br>
     {{ i.schoolName }}<br>
-    {{ i.board }}<br>
-    {{ i.cgpa }}<br>
-    {{ i.year }}<br>
-    {{ i.course }}<br>
-    {{ i.stream }}
+        {{ i.board }}<br>
+
+    Year: {{ i.year }}<br>
+        CGPA: {{ i.cgpa }}<br>
+
 
 {% endfor %}
-{% endif %}
 
-    </div>
 </div>
-<hr>
+    </div>
+    <hr>
+
+        {% endif %}
+
+
+
+
 {% if internshipObj is not defined %}
 <div class="container">
     <div class="left_container"><h4>Internships</h4></div>
 
 
     <div class="right_container">
-    {% for i in internshipObj %}<br>
-        {{i.profile}}<br>
+        {% for i in internshipObj %}
+        <h3>{{i.profile}}</h3>
         {{i.organisation}}<br>
     {{i.duration}}<br>
     {{i.description}}<br>
@@ -134,7 +145,9 @@
     {% endfor %}
 
 
+
 </div>
+
 </div>
 <hr>
     {% endif %}
@@ -157,8 +170,8 @@
 
 </div>
 
-
 <hr>
+
     {% endif %}
 {% if projectObj is not defined %}
 <div class="container" >
@@ -168,16 +181,18 @@
 
 
 <div class="right_container">
-                {% for i in projectObj %}<br>
+                {% for i in projectObj %}
 
-                    {{i.Name}}<br>
+                    <h3>{{i.Name}}</h3>
                     {{i.duration}}<br>
                     {{i.description}}<br>
-                {% endfor %}<br>
+                <br>{% endfor %}
 
 </div>
 
+</div>
 <hr>
+
     {% endif %}
 {% if jobObj is not defined %}
 <div class="container">
@@ -186,17 +201,21 @@
 
 
 
+<div class="right_container">
+{% for i in jobObj %}
 
-                {% for i in jobObj %}
-                <div class="right_container">
-                    {{i.profile}}<br>
+                    <h3>{{i.profile}}</h3>
                     {{i.organisation}}<br>
                     {{i.duration}}<br>
                     {{i.description}}<br>
+                    <br>
                 {% endfor %}
 
 
 </div>
-    </div>
+</div>
+<hr>
+
 {% endif %}
+
     {% endblock %}

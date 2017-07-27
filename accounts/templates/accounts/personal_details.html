@@ -73,7 +73,7 @@ color:#1c72ff;}
     <div class="row">
     <div class="col-sm-4" ><h3>Education</h3></div>
 
-    <div class="col-sm-8" ><h3>Secondary</h3>
+    <div class="col-sm-8" ><h3>Secondary (X)</h3>
 
 
     {% if secondaryObj is not defined %}
@@ -92,7 +92,7 @@ color:#1c72ff;}
         {% else %}
 <br><a href="/account/secondary">Add Details</a>
        {% endif %}
-<br><h3>Senior Secondary</h3>
+<br><h3>Senior Secondary (XII)</h3>
     {% if ssObj is not defined %}
     {% for j in ssObj  %}
     {{j.schoolName}}<br>
@@ -133,7 +133,7 @@ color:#1c72ff;}
     {% if internshipObj is not defined %}
 
     <div class="col-sm-8">
-    {% for i in internshipObj %}<br>
+        <h3>{% for i in internshipObj %}</h3>
         {{i.profile}}<br>
         {{i.organisation}}<br>
     {{i.duration}}<br>
