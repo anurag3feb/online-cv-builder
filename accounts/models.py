@@ -8,11 +8,11 @@ SeniorSecondaryChoices=(('Art','Arts'),
                         ('Science','Science'))
 
 
-GraduationCourseChoices=(('bsc','B.Sc.'),
-                         ('B.E.','B.E.'),
-                         ('btech','B.Tech.'),
-                         ('ba','B.A.'),
-                         ('bcom','B.Com.'))
+GraduationCourseChoices=(('Bachelor of Science','B.Sc.'),
+                         ('Bachelor of Engineering, (B.E.)','B.E.'),
+                         ('Bachelor of Technology, (B.Tech.)','B.Tech.'),
+                         ('Bachelor of Arts, (B.A.)','B.A.'),
+                         ('Bachelor of Commerce, (B.Com.)','B.Com.'))
 
 
 GraduationStreamChoices=(('Information Technology','Information Technology'),

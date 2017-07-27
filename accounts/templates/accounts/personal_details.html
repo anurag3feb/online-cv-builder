@@ -133,8 +133,8 @@ color:#1c72ff;}
     {% if internshipObj is not defined %}
 
     <div class="col-sm-8">
-        <h3>{% for i in internshipObj %}</h3>
-        {{i.profile}}<br>
+        {% for i in internshipObj %}
+        <h3>{{i.profile}}</h3>
         {{i.organisation}}<br>
     {{i.duration}}<br>
     {{i.description}}<br>
@@ -190,8 +190,8 @@ color:#1c72ff;}
                 {% for i in projectObj %}
 
                     <h3>{{i.Name}}</h3>
-                    {{i.duration}}<br>
-                    {{i.description}}<br>
+                    <br>{{i.duration}}<br>
+                    <br>{{i.description}}<br>
                 <br>{% endfor %}
                 <br><a href="/account/edit_projects"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;"/></a><br>
             </div>
@@ -216,8 +216,8 @@ color:#1c72ff;}
 
                     <h3>{{i.profile}}</h3>
                     {{i.organisation}}<br>
-                    {{i.duration}}<br>
-                    {{i.description}}<br>
+                    <br>{{i.duration}}<br>
+                    <br>{{i.description}}<br>
                     <br>
                 {% endfor %}
 
