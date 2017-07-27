@@ -2,26 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a92e8cc-3bb0-44e1-8742-ef5c9188386b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/static/accounts/edit.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/static/accounts/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/django-extensions" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/edit_internship.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/edit_internship.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/edit_jobs.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/edit_jobs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/edit_projects.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/edit_projects.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/edit_skills.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/edit_skills.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/graduation.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/graduation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/internships.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/internships.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/jobs.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/jobs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/login.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/logout.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/logout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/pdf_template.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/pdf_template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/personal_details.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/personal_details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/personal_form.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/personal_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/projects.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/projects.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/secondary.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/secondary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/skills.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/skills.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/base.html" afterPath="$PROJECT_DIR$/accounts/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/views.py" afterPath="$PROJECT_DIR$/accounts/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tutorial/settings.py" afterPath="$PROJECT_DIR$/tutorial/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +18,7 @@
         <entry file="file://$PROJECT_DIR$/tutorial/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="477">
-              <caret line="132" column="32" lean-forward="false" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
+              <caret line="132" column="38" lean-forward="false" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -812,7 +792,7 @@
     <entry file="file://$PROJECT_DIR$/tutorial/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
-          <caret line="132" column="32" lean-forward="false" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
+          <caret line="132" column="38" lean-forward="false" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
           <folding />
         </state>
       </provider>

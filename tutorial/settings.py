@@ -130,6 +130,6 @@ EMAIL_PORT = 587
 
 EMAIL_HOST_USER = 'anuragharsh95@gmail.com'
 
-EMAIL_HOST_PASSWORD = '*********'
+EMAIL_HOST_PASSWORD = '**********atsid'
 
 EMAIL_USE_TLS = True
