@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
 /* Full-width input fields */
 input[type=text], input[type=password],input[type=email] {
@@ -48,7 +49,9 @@ img.avatar {
 .container {
     padding: 16px;
 }
-
+.fcontainer {
+    padding: 16px;
+}
 span.psw {
     float: right;
     padding-top: 16px;
@@ -74,7 +77,7 @@ span.psw {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 30%; /* Could be more or less, depending on screen size */
+    width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* Change styles for span and cancel button on extra small screens */
@@ -100,15 +103,16 @@ ul { background-color: #f44336;
 }
 </style>
 {% block body %}
+</head>
 <body>
-
-<h2>Online CV Builder</h2>
-
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
 <div id="id01" class="modal">
 
   <form class="modal-content animate" method="post">
+    <div class="btn-group btn-group-justified">
+  <a href="/account/login" class="btn">Login</a>
+  <a href="#" class="btn btn-success">SignUp</a>
+</div>
     <div class="imgcontainer">
 
 
@@ -117,7 +121,7 @@ ul { background-color: #f44336;
 
     </div>
 
-    <div class="container">
+    <div class="fcontainer">
     {% csrf_token %}
     {{ form.as_p }}
     <button style="width:100;" type="submit">Register</button>
@@ -125,7 +129,7 @@ ul { background-color: #f44336;
       <input type="checkbox" checked="checked"> Remember me
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
+    <div class="fcontainer" style="background-color:#f1f1f1">
       <button type="button" href="#" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
