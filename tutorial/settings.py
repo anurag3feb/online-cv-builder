@@ -25,7 +25,7 @@ SECRET_KEY = 'fus8xc@s^t#@a%+8=^2slc(lx2sq^n#-9akgvh4+jzkbkhjnu$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['anurag3feb.pythonanywhere.com']
+ALLOWED_HOSTS = ["127.0.0.1",'anurag3feb.pythonanywhere.com']
 
 
 # Application definition
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Calcutta'
 
 USE_I18N = True
 
@@ -120,7 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL="/account/"
+LOGIN_REDIRECT_URL="/account/personal"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -130,6 +130,6 @@ EMAIL_PORT = 587
 
 EMAIL_HOST_USER = 'anuragharsh95@gmail.com'
 
-EMAIL_HOST_PASSWORD = '*******'
+EMAIL_HOST_PASSWORD = '*********'
 
 EMAIL_USE_TLS = True

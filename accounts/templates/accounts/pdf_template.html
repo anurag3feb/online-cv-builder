@@ -48,6 +48,20 @@
 
             }
 
+        .skill_container
+            {
+
+
+                width: 100px;
+                height: auto;
+                margin-top: 2.5px ;
+                display: block;
+                padding: 2.5px 2.5px;
+                position: relative;
+                float: left;
+
+            }
+
 
     </style>
 </head>
@@ -59,36 +73,37 @@
     {{ personalObj.name }}<br>
     Email:{{ personalObj.email }}<br>
     Conatct No:{{ personalObj.contact_no }}<br>
-    Location:{{ personalObj.location }}<br>
-</div>
+    Location:{{ personalObj.location }}
 
+</div>
+<hr>
 <div class="container">
     <div class="left_container"><h4>Education</h4></div>
 
     <div class="right_container"><h4>Secondary</h4>
 
+
+    {% if secondaryObj is not defined %}
     {% for i in secondaryObj  %}
     {{ i.schoolName }}<br>
     {{ i.board }}<br>
     {{ i.cgpa }}<br>
     {{ i.year }}<br>
 
-    {% endfor %}
-
-
+        {% endfor %}
+        {% endif %}
+<br><h4>Senior Secondary</h4>
+    {% if ssObj is not defined %}
     {% for j in ssObj  %}
-
-    <h4>Senior Secondary</h4>
-
     {{j.schoolName}}<br>
     {{j.board}}<br>
     {{j.cgpa}}<br>
     {{j.year}}<br>
     {{j.stream}}<br>
 {% endfor %}
-
-
+        {% endif %}
     <h4>Graduation</h4>
+         {% if graduationObj is not defined %}
 {% for i in graduationObj  %}
 
     {{ i.schoolName }}<br>
@@ -96,66 +111,92 @@
     {{ i.cgpa }}<br>
     {{ i.year }}<br>
     {{ i.course }}<br>
-    {{ i.stream }}<br>
+    {{ i.stream }}
 
 {% endfor %}
-
+{% endif %}
 
     </div>
 </div>
-
-
-
-    {% if internshipObj is not defined %}
-    <div class="container">
+<hr>
+{% if internshipObj is not defined %}
+<div class="container">
     <div class="left_container"><h4>Internships</h4></div>
+
+
     <div class="right_container">
     {% for i in internshipObj %}<br>
-    {{i.organisation}}<br>
-    {{i.role}}<br>
-    {{i.year}}<br>
+        {{i.profile}}<br>
+        {{i.organisation}}<br>
+    {{i.duration}}<br>
+    {{i.description}}<br>
 
     {% endfor %}
-    </div>
+
+
+</div>
+</div>
+<hr>
     {% endif %}
+    {% if skillsObj is not defined %}
+<div class="container" >
+<div class="left_container"><h4>Skills</h4></div>
+
+
+
+
+<div class="right_container">
+    <ul>
+                {% for i in skillsObj %}
+
+        <div class="skill_container"><li>{{i.skill}}</li></div>
+                {% endfor %}<br>
+        </ul>
+</div>
+
 
 </div>
 
 
+<hr>
+    {% endif %}
+{% if projectObj is not defined %}
+<div class="container" >
+<div class="left_container"><h4>Projects</h4></div>
 
 
-    {% if projectObj is not defined %}
 
-        <div class="container" >
-            <div class="left_container"><h4>Projects</h4></div>
-            <div class="right_container">
-                {% for i in projectObj %}
-                    {{i.role}}<br>
-                    {{i.location}}<br>
+
+<div class="right_container">
+                {% for i in projectObj %}<br>
+
+                    {{i.Name}}<br>
+                    {{i.duration}}<br>
+                    {{i.description}}<br>
+                {% endfor %}<br>
+
+</div>
+
+<hr>
+    {% endif %}
+{% if jobObj is not defined %}
+<div class="container">
+    <div class="left_container"><h4>Jobs</h4></div>
+
+
+
+
+
+                {% for i in jobObj %}
+                <div class="right_container">
+                    {{i.profile}}<br>
+                    {{i.organisation}}<br>
+                    {{i.duration}}<br>
                     {{i.description}}<br>
                 {% endfor %}
-            </div>
-        </div>
-
-    {% endif %}
 
 
-
-
-
-    {% if jobObj is not defined %}
-
-        <div class="container" style=" display: block;">
-            <div class="left_container"><h4>Jobs</h4></div>
-            <div class="right_container">
-                {% for i in jobObj %}
-                    {{i.role}}<br>
-                    {{i.organisation}}<br>
-                    {{i.year}}<br>
-                {% endfor %}
-            </div>
-        </div>
-
-    {% endif %}
-
-{% endblock %}
+</div>
+    </div>
+{% endif %}
+    {% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth import logout
 from accounts.forms import *
 from accounts.models import *
-from django.template import loader, Context,RequestContext
+from django.template import loader, Context
 from weasyprint import HTML
 from django.core.mail import EmailMessage
 from django.forms import modelformset_factory
@@ -127,7 +127,7 @@ def internshipDetails(request):
             Internship.user=request.user
             Internship.save()
 
-            return redirect("/account/internships/")
+            return redirect("/account/profile/")
     else:
         form =InternshipForm()
         args={'form':form}
@@ -142,7 +142,7 @@ def jobDetails(request):
             job.user=request.user
             job.save()
 
-            return redirect("/account/jobs/")
+            return redirect("/account/profile/")
     else:
         form =JobForm()
         args={'form':form}
@@ -157,7 +157,7 @@ def projectDetails(request):
             project.user=request.user
             project.save()
 
-            return redirect("/account/projects/")
+            return redirect("/account/profile/")
     else:
         form =ProjectForm()
         args={'form':form}
@@ -213,6 +213,9 @@ def generatePDF(request):
     if Job.objects.filter(user=request.user):
         jobObj = list(Job.objects.filter(user=request.user))
         args['jobObj']=jobObj
+    if Skills.objects.filter(user=request.user):
+        skillsObj = list(Skills.objects.filter(user=request.user))
+        args['skillsObj']=skillsObj
 
 
 

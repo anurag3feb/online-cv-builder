@@ -1,95 +1,79 @@
 <html>
-
-<head>
-    <style>
-        @page{
-        size: A4;
-        margin: 1cm;}
-        .container
-        {
-        display: inline-block;
-
-
-        width: 100%;
-        height: auto;
-        }
-
-        .left_container
-            {
+{% block head %}
+<style>
+.col-sm-4{
+color: #287aff;
+}
+    h2{
+color:#1c72ff;}
+</style>
 
 
-                width: 150px;
-                height: auto;
-                padding: 20px 20px;
-                display: inline-block;
-                margin-right: 50px;
-                position: relative;
-                float: left;
-            }
-        .right_container
-            {
-
-
-                width: 400px;
-                height: auto;
-                margin-top: 5px ;
-                display: inline-block;
-                padding: 20px 20px;
-                position: relative;
-                float: left;
-
-            }
-        .skill_container
-            {
-
-
-                width: 150px;
-                height: auto;
-                margin-top: 5px ;
-                display: block;
-                padding: 5px 5px;
-                position: relative;
-                float: left;
-
-            }
-
-        .top_container
-            {
-
-                display: block;
-                width: auto;
-                margin-left: 20px;
-
-            }
-
-        .img_container
-            {
-                height: 20px;
-                width: 20px;
-
-            }
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
 
-    </style>
-</head>
+    <title>Online CV Builder
+  </title>
 
 
+{% endblock %}
 {% block body %}
-<div class="top_container">
+<br>
 
-    {{ personalObj.name }}<br>
-    Email:{{ personalObj.email }}<br>
-    Conatct No:{{ personalObj.contact_no }}<br>
-    Location:{{ personalObj.location }}<br>
-    {% load static %}
-    <a href="/account/personal"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
-</div>
-<hr>
 <div class="container">
-    <div class="left_container"><h4>Education</h4></div>
 
-    <div class="right_container"><h4>Secondary</h4>
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Online CV Builder</a>
+          </div>
+
+          <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+              <li><a href="/account/profile">Profile</a></li>
+              <li><a href="/account/generate">Download PDF</a></li>
+                <li><a href="/account/mail">Email PDF</a></li>
+              <li><a href="/account/logout">Log out</a></li>
+            </ul>
+
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+    <h2>{{ personalObj.name }}</h2><br>
+    <h4>Email:{{ personalObj.email }}</h4>
+    <h4>Conatct No:{{ personalObj.contact_no }}</h4>
+    <h4>Location:{{ personalObj.location }}</h4>
+    {% load static %}
+    <a href="/account/personal"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;"/></a>
+
+<hr>
+<div class="row">
+    <div class="row">
+    <div class="col-sm-4" ><h3>Education</h3></div>
+
+    <div class="col-sm-8" ><h3>Secondary</h3>
 
 
     {% if secondaryObj is not defined %}
@@ -101,11 +85,14 @@
 
         {% endfor %}
         {% load static %}
-        <br><a href="/account/secondary"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+        <br>
+        <div class="img_edit">
+            <a href="/account/secondary"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;" /></a>
+        </div>
         {% else %}
 <br><a href="/account/secondary">Add Details</a>
-        {% endif %}
-<br><h4>Senior Secondary</h4>
+       {% endif %}
+<br><h3>Senior Secondary</h3>
     {% if ssObj is not defined %}
     {% for j in ssObj  %}
     {{j.schoolName}}<br>
@@ -115,11 +102,11 @@
     {{j.stream}}<br>
 {% endfor %}
         {% load static %}
-<a href="/account/senior_secondary"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+<a href="/account/senior_secondary"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;"/></a>
 {% else %}
 <br><a href="/account/senior_secondary">Add Details</a>
         {% endif %}
-    <h4>Graduation</h4>
+    <h3>Graduation</h3>
          {% if graduationObj is not defined %}
 {% for i in graduationObj  %}
 
@@ -132,19 +119,20 @@
 
 {% endfor %}
         {% load static %}
-<br><a href="/account/graduation"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+<br><a href="/account/graduation"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;" /></a>
 {% else %}
 <br><a href="/account/graduation">Add Details</a>
         {% endif %}
     </div>
+  </div>
 </div>
 <hr>
 
-<div class="container">
-    <div class="left_container"><h4>Internships</h4></div>
+<div class="row">
+    <div class="col-sm-4"><h3>Internships</h3></div>
     {% if internshipObj is not defined %}
 
-    <div class="right_container">
+    <div class="col-sm-8">
     {% for i in internshipObj %}<br>
         {{i.profile}}<br>
         {{i.organisation}}<br>
@@ -153,91 +141,101 @@
 
     {% endfor %}
         {% load static %}
-<a href="/account/edit_internships"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
+<a href="/account/edit_internships"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;"/></a>
     </div>
     {% else %}
-<div class="right_container"><a href="/account/internships">Add Details</a></div>
+<a href="/account/internships">Add Details</a>
 
     {% endif %}
 
 </div>
 <hr>
-<div class="container" >
-<div class="left_container"><h4>Skills</h4></div>
-    {% if skillsObj is not defined %}
+
+<div class="row" >
+<div class="col-sm-4"><h3>Skills</h3></div>
+{% if skillsObj is not defined %}
 
 
 
-<div class="right_container">
+<div class="col-sm-8">
     <ul>
                 {% for i in skillsObj %}
 
-        <div class="skill_container"><li>{{i.skill}}</li></div>
-                {% endfor %}<br>
+        <div class="col-sm-6"><li><h4>{{i.skill}}</h4></li></div>
+                {% endfor %}
         </ul>
                 {% load static %}
-<a href="/account/edit_skills"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a><br></a>
+<a href="/account/edit_skills"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;"/></a><br></a>
 
 </div>
 {% else %}
     {% load static %}
-<a href="/account/skills"><<img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a><br>
+<a href="/account/skills">Add Details</a><br>
 
     {% endif %}
+
 </div>
-
-
 <hr>
 
-<div class="container" >
-<div class="left_container"><h4>Projects</h4></div>
-    {% if projectObj is not defined %}
+
+
+<div class="row" >
+
+<div class="col-sm-4"><h3>Projects</h3></div>
+{% if projectObj is not defined %}
 
 
 
-<div class="right_container">
-                {% for i in projectObj %}<br>
+<div class="col-sm-8">
+                {% for i in projectObj %}
 
-                    {{i.Name}}<br>
+                    <h3>{{i.Name}}</h3>
                     {{i.duration}}<br>
                     {{i.description}}<br>
-                {% endfor %}<br>
-                <br><a href="/account/edit_projects"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a><br>
+                <br>{% endfor %}
+                <br><a href="/account/edit_projects"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;"/></a><br>
             </div>
 
 {% else %}
 <br><a href="/account/projects">Add Details</a><br>
+{% endif %}
 
-    {% endif %}
 </div>
-
 <hr>
 
-<div class="container">
-    <div class="left_container"><h4>Jobs</h4></div>
-    {% if jobObj is not defined %}
+
+
+<div class="row">
+    <div class="col-sm-4"><h3>Jobs</h3></div>
+{% if jobObj is not defined %}
 
 
 
-
+<div class="col-sm-8">
                 {% for i in jobObj %}
-                <div class="right_container">
-                    {{i.profile}}<br>
+
+                    <h3>{{i.profile}}</h3>
                     {{i.organisation}}<br>
                     {{i.duration}}<br>
                     {{i.description}}<br>
+                    <br>
                 {% endfor %}
-{% load static %}
 
-    <a href="/account/edit_jobs"><img src="{% static 'accounts/edit.svg' %}" alt="My image" class="img_container"/></a>
-    {% else %}
+    {% load static %}
+
+    <a href="/account/edit_jobs"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;"/></a>
+{% else %}
 <a href="/account/jobs">Add Details</a><br>
 
-    {% endif %}
-</div>
     </div>
+{% endif %}
+</div>
+
 <hr>
-<div><a href="/account/generate/">Generate</a><br>
+<div class="container">
+
+    <a href="/account/generate/">Generate</a><br>
 <a href="/account/mail/">Send Mail</a><br>
+</div>
 </div>
     {% endblock %}

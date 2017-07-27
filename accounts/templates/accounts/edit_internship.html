@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block body %}
-<form class="container" method="post">
+<div class="container">
+<form method="post">
 
 {{ formset.management_form }}
 
@@ -8,8 +9,10 @@
     <h2>Update Details</h2>
     {% csrf_token %}
         {{ form.as_p }}
-    <button type="submit" >Save</button>
+    <button type='submit' class="btn btn-success" >Save</button>
+    <a href="/account/profile/" class="btn btn-warning" role="button">Cancel</a>
     {% endfor %}
 
 </form>
 {% endblock %}
+    </div>
