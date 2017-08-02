@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
 {% block body %}
+
 <div class="container">
-<form method="post">
+<h2>Edit Project Details</h2>
+    <br>
+
+    <form method="post">
 
 {{ formset.management_form }}
 
@@ -13,6 +17,8 @@
     <a href="/account/profile/" class="btn btn-warning" role="button">Cancel</a>
     <br>
     <br>
+    <br>
+
     {% endfor %}
 
 </form>

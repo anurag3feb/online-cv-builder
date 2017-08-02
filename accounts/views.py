@@ -14,6 +14,7 @@ def home(request):
     return render(request,'accounts/home.html')
 
 def register(request):
+
     if request.method =='POST':
         form=RegistrationForm(request.POST)
         if form.is_valid():
@@ -22,6 +23,10 @@ def register(request):
             print(data)
             form.save()
             return redirect('/account/login/')
+        else:
+            args = {'form': form}
+            return render(request, 'accounts/reg_form.html', args)
+
     else:
         form =RegistrationForm()
         args={'form':form}
@@ -43,6 +48,10 @@ def personal_details(request):
             personal.user = request.user
             personal.save()
             return redirect("/account/profile")
+        else:
+            args = {'form': form}
+            return render(request, 'accounts/personal_form.html', args)
+
 
     else:
         form = PersonalForm(instance=instance)
@@ -68,6 +77,9 @@ def secondaryDetails(request):
             education.save()
 
             return redirect("/account/profile/")
+        else:
+            args = {'form': form}
+            return render(request, 'accounts/secondary.html', args)
     else:
         form =SecondaryForm(instance=instance)
         args={'form':form}
@@ -91,6 +103,9 @@ def seniorSecondaryDetails(request):
             education.save()
 
             return redirect("/account/profile/")
+        else:
+            args = {'form': form}
+            return render(request, 'accounts/senior_secondary.html', args)
     else:
         form =SeniorSecondaryForm(instance=instance)
         args={'form':form}
@@ -112,6 +127,9 @@ def graduationDetails(request):
             education.save()
 
             return redirect("/account/profile/")
+        else:
+            args = {'form': form}
+            return render(request, 'accounts/graduation.html', args)
     else:
         form =GraduationForm(instance=instance)
         args={'form':form}
@@ -128,6 +146,9 @@ def internshipDetails(request):
             Internship.save()
 
             return redirect("/account/profile/")
+        else:
+            args = {'form': form}
+            return render(request, 'accounts/internships.html', args)
     else:
         form =InternshipForm()
         args={'form':form}
@@ -143,6 +164,9 @@ def jobDetails(request):
             job.save()
 
             return redirect("/account/profile/")
+        else:
+            args = {'form': form}
+            return render(request, 'accounts/jobs.html', args)
     else:
         form =JobForm()
         args={'form':form}
@@ -158,6 +182,9 @@ def projectDetails(request):
             project.save()
 
             return redirect("/account/profile/")
+        else:
+            args = {'form': form}
+            return render(request, 'accounts/projects.html', args)
     else:
         form =ProjectForm()
         args={'form':form}
@@ -172,6 +199,9 @@ def Skill(request):
             skills.save()
 
             return redirect("/account/profile/")
+        else:
+            args = {'form': form}
+            return render(request, 'accounts/skills.html', args)
     else:
         form =SkillsForm()
         args={'form':form}
@@ -388,9 +418,12 @@ def editJobs(request):
 
 def personal_profile(request):
     args={}
-    personalObj = PersonalDetails.objects.get(user = request.user)
-    print(personalObj.name)
-    args['personalObj'] = personalObj
+    try:
+        personalObj = PersonalDetails.objects.get(user = request.user)
+
+        args['personalObj'] = personalObj
+    except:
+        pass
 
     if SecondaryDetails.objects.filter(user = request.user):
         secondaryObj = list(SecondaryDetails.objects.filter(user = request.user))

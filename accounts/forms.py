@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm,Textarea
 from . import models
 
 from django.contrib.auth.models import User
@@ -58,6 +58,9 @@ class GraduationForm(ModelForm):
     class Meta:
         model=models.GraduationDetails
         fields=['schoolName','board','cgpa','year','stream','course']
+        labels = {
+            'schoolName': ('College')
+        }
         
 
 
@@ -66,21 +69,31 @@ class InternshipForm(ModelForm):
     class Meta:
         model=models.Internship
         fields=['profile','organisation','duration','description']
+        widgets = {
+            'description': Textarea(attrs={'cols': 30, 'rows': 5}),
+        }
 
 
 class SkillsForm(ModelForm):
     class Meta:
         model=models.Skills
         fields=['skill']
+
         
 
 class JobForm(ModelForm):
     class Meta:
         model=models.Job
         fields=['profile','organisation','duration','description']
+        widgets = {
+            'description': Textarea(attrs={'cols': 30, 'rows': 5}),
+        }
 
 class ProjectForm(ModelForm):
     class Meta:
         model = models.Projects
         fields = [ 'Name','duration', 'description']
+        widgets = {
+            'description': Textarea(attrs={'cols': 30, 'rows': 5}),
+        }
         

@@ -60,6 +60,7 @@ color:#1c72ff;}
 
 
 <div class="container">
+    {% if personalObj is not defined %}
 
     <h2>{{ personalObj.name }}</h2><br>
     <h4>Email:{{ personalObj.email }}</h4>
@@ -67,7 +68,9 @@ color:#1c72ff;}
     <h4>Location:{{ personalObj.location }}</h4>
     {% load static %}
     <a href="/account/personal"><img src="{% static 'accounts/edit.png' %}" alt="My image" style="width:20px;"/></a>
-
+    {% else %}
+    <br><a href="/account/personal">Add Personal Details</a>
+    {% endif %}
 <hr>
 <div class="row">
     <div class="row">
