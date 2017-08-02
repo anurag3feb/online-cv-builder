@@ -305,9 +305,9 @@ section:last-child {
 				{% for i in jobObj %}
 
 					<h2>{{ i.profile }}</h2>
-					<p class="subDetails">{{ i.organisation }}</p>
+					<br><p class="subDetails">{{ i.organisation }}</p>
 					<p class="subDetails">{{ i.duartion }}</p>
-					<p>{{ i.description }}</p>
+					<p class="subDetails">{{ i.description }}</p>
 
 				{% endfor %}
 			</article>
@@ -330,7 +330,7 @@ section:last-child {
 				{% for i in projectObj %}
 				<article>
 					<h2>{{ i.Name }}</h2>
-					<p class="subDetails">{{ i.duration }}</p>
+					<br><p class="subDetails">{{ i.duration }}</p>
 					<p class="subDetails">{{ i.description }}</p>
 				</article>
 				<br>
@@ -456,7 +456,7 @@ section:last-child {
 
 
 
-					<p class="subDetails">{{ i.schoolName }}</p>
+					<h2><p class="subDetails">{{ i.schoolName }}</p></h2>
 					<p class="subDetails">{{ i.board }}</p>
 					<p class="subDetails">{{ i.year }}</p>
 					<p class="subDetails">{{ i.cgpa }}</p>
