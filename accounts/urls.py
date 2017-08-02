@@ -15,11 +15,11 @@ urlpatterns = [
     url(r'^internships/$',views.internshipDetails),
     url(r'^jobs/$',views.jobDetails),
     url(r'^projects/$',views.projectDetails),
-    url(r'^generate/$',views.generatePDF),
+    url(r'^generate/$',views.chooseTemplate),
+    url(r'^temp1/$',views.generatePDF),
+    url(r'^temp2/$',views.generatePDF2),
     url(r'^edit_skills/$',views.editSkills),
     url(r'^skills/$',views.Skill),
-
-
     url(r'^mail/$', views.sendEmail),
     url(r'^edit_jobs/$',views.editJobs),
     url(r'^edit_projects/$',views.editProjects),

@@ -229,6 +229,56 @@ def generatePDF(request):
     return HttpResponse(pdf, content_type='application/pdf')
 
 
+def chooseTemplate(request):
+    return render(request, 'accounts/chooseTemplate.html')
+
+
+
+
+def generatePDF2(request):
+    args = {}
+    personalObj = PersonalDetails.objects.get(user=request.user)
+    print(personalObj.name)
+    args['personalObj'] = personalObj
+
+    if SecondaryDetails.objects.filter(user=request.user):
+        secondaryObj = list(SecondaryDetails.objects.filter(user=request.user))
+        args['secondaryObj'] = secondaryObj
+
+    if SeniorSecondaryDetails.objects.filter(user=request.user):
+        ssObj = list(SeniorSecondaryDetails.objects.filter(user=request.user))
+        args['ssObj'] = ssObj
+
+    if GraduationDetails.objects.filter(user=request.user):
+        graduationObj = list(GraduationDetails.objects.filter(user=request.user))
+        args['graduationObj'] = graduationObj
+
+    if Internship.objects.filter(user=request.user):
+        internshipObj = list(Internship.objects.filter(user=request.user))
+        args['internshipObj'] = internshipObj
+
+    if Projects.objects.filter(user=request.user):
+        projectsObj = list(Projects.objects.filter(user=request.user))
+        args['projectObj'] = projectsObj
+
+    if Job.objects.filter(user=request.user):
+        jobObj = list(Job.objects.filter(user=request.user))
+        args['jobObj'] = jobObj
+    if Skills.objects.filter(user=request.user):
+        skillsObj = list(Skills.objects.filter(user=request.user))
+        args['skillsObj'] = skillsObj
+
+    t = loader.get_template('accounts/pdf_template2.html')
+    c = Context(args)
+    rendered = t.render(c)
+    rendered = str(rendered)
+    html = HTML(string=rendered)
+    main_doc = html.render()
+    pdf = main_doc.write_pdf()
+    return HttpResponse(pdf, content_type='application/pdf')
+
+
+
 def editInternships(request):
     InternshipFormSet = modelformset_factory(Internship, form=InternshipForm, can_delete=True)
     qset = Internship.objects.filter(user=request.user)
