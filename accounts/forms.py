@@ -16,8 +16,6 @@ class RegistrationForm(UserCreationForm):
 
         fields = (
             'username',
-            'first_name',
-            'last_name',
             'email',
             'password1',
             'password2'
@@ -25,8 +23,7 @@ class RegistrationForm(UserCreationForm):
 
         def save(self, commit=True):
             user = super(RegistrationForm, self).save(commit=False)
-            user.first_name = cleaned_data['first_name']
-            user.last_name = cleaned_data['last_name']
+
             user.email=cleaned_data['email']
 
             if commit:
@@ -38,7 +35,7 @@ class RegistrationForm(UserCreationForm):
 class PersonalForm(ModelForm):
     class Meta:
         model = models.PersonalDetails
-        fields = ['name', 'email', 'contact_no', 'location']
+        fields = ['name', 'contact_no', 'location']
 
 
 

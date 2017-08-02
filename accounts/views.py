@@ -419,7 +419,10 @@ def editJobs(request):
 def personal_profile(request):
     args={}
     try:
+        email = request.user.email
         personalObj = PersonalDetails.objects.get(user = request.user)
+
+        args['email']=email
 
         args['personalObj'] = personalObj
     except:

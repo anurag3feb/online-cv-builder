@@ -36,7 +36,6 @@ class PersonalDetails(models.Model):
 
     user = models.OneToOneField(User)
     name = models.CharField(max_length=20,default="")
-    email = models.EmailField()
     contact_no = models.CharField(max_length=13,default="")
     location=models.CharField(max_length=20,default="")
 
