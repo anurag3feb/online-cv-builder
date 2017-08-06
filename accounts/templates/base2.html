@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
   integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Serif+Caption" />
-
 {% load static %}
   <link rel="icon" href="{% static 'accounts/favicon.ico' %}" type="image/x-icon">
   <style>
@@ -21,6 +20,15 @@ border-color:#ebccd1
   { vertical-align: top; }
 
 
+  body {
+  {% load static %}
+background: url({% static 'accounts/base.png' %}) no-repeat center center fixed;
+-webkit-background-size: cover;
+
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}​
 </style>
 
 
@@ -35,6 +43,7 @@ border-color:#ebccd1
 
 {% load static %}
 <body>
+
 {% block navbar %}
 <br>
 

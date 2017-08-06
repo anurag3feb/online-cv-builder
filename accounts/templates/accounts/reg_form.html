@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'base2.html'%}
 <head>
     {% block extra_css %}
     {% load static %}
@@ -27,7 +27,13 @@
     <div class="fcontainer">
     {% csrf_token %}
     {{ form.as_p }}
-    <button style="width:100%;" type="submit">Register</button>
+    <button style="background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;" type="submit">Register</button>
 
       <input type="checkbox" checked="checked"> Remember me
     </div>

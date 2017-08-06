@@ -13,6 +13,10 @@ def home(request):
 
     return render(request,'accounts/home.html')
 
+def base(request):
+
+    return render(request,'base.html')
+
 def register(request):
 
     if request.method =='POST':
@@ -460,13 +464,10 @@ def personal_profile(request):
         skillsObj = list(Skills.objects.filter(user=request.user))
         args['skillsObj']=skillsObj
 
-    t = loader.get_template('accounts/personal_details.html')
-    c = Context(args)
-    rendered = t.render(c)
 
 
 
-    return HttpResponse(rendered)
+    return render(request,'accounts/personal_details.html',args)
 
 
 
