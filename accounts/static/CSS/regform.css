@@ -32,7 +32,8 @@ img.avatar {
 }
 
 
-.fcontainer {
+.fcontainer
+{
     padding: 16px;
 }
 span.psw {
@@ -40,15 +41,17 @@ span.psw {
     padding-top: 16px;
 }
 
-/* The Modal (background) */
+
 .modaL
 {
     display: inline-block; /* Hidden by default */
     position: relative; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 0; /* Sit on top */
     left: 0;
+    text-align: left;
     top: 0;
-    width: auto; /* Full width */
+    min-width: 300px;
+    max-width: 50% !important;
     height: auto; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     padding-top: 10px;
@@ -60,19 +63,10 @@ span.psw {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
+    width: 90%; /* Could be more or less, depending on screen size */
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-}
 
 
 .InActive
@@ -89,20 +83,4 @@ font-family: "PT Serif Caption"
     width: auto;
    color: #000000;
    font-family: "PT Serif Caption"
-}
-@media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
-    }
-    .modaL-content {
-
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
 }
