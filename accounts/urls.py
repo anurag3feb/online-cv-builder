@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^edit_skills/$',views.editSkills),
     url(r'^skills/$',views.Skill),
     url(r'^mail_1/$', views.sendEmail_1),
-    url(r'^mail_1/$', views.sendEmail_2),
+    url(r'^mail_2/$', views.sendEmail_2),
     url(r'^edit_jobs/$',views.editJobs),
     url(r'^edit_projects/$',views.editProjects),
     url(r'^edit_internships/$',views.editInternships),
