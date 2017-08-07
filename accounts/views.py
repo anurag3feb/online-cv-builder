@@ -8,6 +8,48 @@ from django.core.mail import EmailMessage
 from django.forms import modelformset_factory
 
 
+def fetch(request):
+    args = {}
+    try:
+        email = request.user.email
+        personalObj = PersonalDetails.objects.get(user=request.user)
+
+        args['email'] = email
+
+        args['personalObj'] = personalObj
+    except:
+        pass
+
+    if SecondaryDetails.objects.filter(user=request.user):
+        secondaryObj = list(SecondaryDetails.objects.filter(user=request.user))
+        args['secondaryObj'] = secondaryObj
+
+    if SeniorSecondaryDetails.objects.filter(user=request.user):
+        ssObj = list(SeniorSecondaryDetails.objects.filter(user=request.user))
+        args['ssObj'] = ssObj
+
+    if GraduationDetails.objects.filter(user=request.user):
+        graduationObj = list(GraduationDetails.objects.filter(user=request.user))
+        args['graduationObj'] = graduationObj
+
+    if Internship.objects.filter(user=request.user):
+        internshipObj = list(Internship.objects.filter(user=request.user))
+        args['internshipObj'] = internshipObj
+
+    if Projects.objects.filter(user=request.user):
+        projectsObj = list(Projects.objects.filter(user=request.user))
+        args['projectObj'] = projectsObj
+
+    if Job.objects.filter(user=request.user):
+        jobObj = list(Job.objects.filter(user=request.user))
+        args['jobObj'] = jobObj
+
+    if Skills.objects.filter(user=request.user):
+        skillsObj = list(Skills.objects.filter(user=request.user))
+        args['skillsObj'] = skillsObj
+
+    return args
+
 # Create your views here.
 def home(request):
 
@@ -215,44 +257,7 @@ def Skill(request):
 
 
 def generatePDF(request):
-    args={}
-    personalObj = PersonalDetails.objects.get(user = request.user)
-    print(personalObj.name)
-    args['personalObj'] = personalObj
-
-    if SecondaryDetails.objects.filter(user = request.user):
-        secondaryObj = list(SecondaryDetails.objects.filter(user = request.user))
-        args['secondaryObj']=secondaryObj
-
-    if SeniorSecondaryDetails.objects.filter(user = request.user):
-        ssObj = list(SeniorSecondaryDetails.objects.filter(user = request.user))
-        args['ssObj'] = ssObj
-
-
-
-
-    if GraduationDetails.objects.filter(user=request.user):
-        graduationObj = list(GraduationDetails.objects.filter(user=request.user))
-        args['graduationObj'] = graduationObj
-
-
-    if Internship.objects.filter(user=request.user):
-        internshipObj = list(Internship.objects.filter(user=request.user))
-        args['internshipObj']=internshipObj
-
-    if Projects.objects.filter(user=request.user):
-        projectsObj = list(Projects.objects.filter(user=request.user))
-        args['projectObj'] = projectsObj
-
-    if Job.objects.filter(user=request.user):
-        jobObj = list(Job.objects.filter(user=request.user))
-        args['jobObj']=jobObj
-    if Skills.objects.filter(user=request.user):
-        skillsObj = list(Skills.objects.filter(user=request.user))
-        args['skillsObj']=skillsObj
-
-
-
+    args=fetch(request)
     t = loader.get_template('accounts/pdf_template.html')
     c = Context(args)
     rendered = t.render(c)
@@ -270,38 +275,7 @@ def chooseTemplate(request):
 
 
 def generatePDF2(request):
-    args = {}
-    personalObj = PersonalDetails.objects.get(user=request.user)
-    print(personalObj.name)
-    args['personalObj'] = personalObj
-
-    if SecondaryDetails.objects.filter(user=request.user):
-        secondaryObj = list(SecondaryDetails.objects.filter(user=request.user))
-        args['secondaryObj'] = secondaryObj
-
-    if SeniorSecondaryDetails.objects.filter(user=request.user):
-        ssObj = list(SeniorSecondaryDetails.objects.filter(user=request.user))
-        args['ssObj'] = ssObj
-
-    if GraduationDetails.objects.filter(user=request.user):
-        graduationObj = list(GraduationDetails.objects.filter(user=request.user))
-        args['graduationObj'] = graduationObj
-
-    if Internship.objects.filter(user=request.user):
-        internshipObj = list(Internship.objects.filter(user=request.user))
-        args['internshipObj'] = internshipObj
-
-    if Projects.objects.filter(user=request.user):
-        projectsObj = list(Projects.objects.filter(user=request.user))
-        args['projectObj'] = projectsObj
-
-    if Job.objects.filter(user=request.user):
-        jobObj = list(Job.objects.filter(user=request.user))
-        args['jobObj'] = jobObj
-    if Skills.objects.filter(user=request.user):
-        skillsObj = list(Skills.objects.filter(user=request.user))
-        args['skillsObj'] = skillsObj
-
+    args = fetch(request)
     t = loader.get_template('accounts/pdf_template2.html')
     c = Context(args)
     rendered = t.render(c)
@@ -420,90 +394,16 @@ def editJobs(request):
     return render(request,'accounts/edit_jobs.html', args)
 
 
+
+
+
+
 def personal_profile(request):
-    args={}
-    try:
-        email = request.user.email
-        personalObj = PersonalDetails.objects.get(user = request.user)
-
-        args['email']=email
-
-        args['personalObj'] = personalObj
-    except:
-        pass
-
-    if SecondaryDetails.objects.filter(user = request.user):
-        secondaryObj = list(SecondaryDetails.objects.filter(user = request.user))
-        args['secondaryObj']=secondaryObj
-
-    if SeniorSecondaryDetails.objects.filter(user = request.user):
-        ssObj = list(SeniorSecondaryDetails.objects.filter(user = request.user))
-        args['ssObj'] = ssObj
-
-
-
-
-    if GraduationDetails.objects.filter(user=request.user):
-        graduationObj = list(GraduationDetails.objects.filter(user=request.user))
-        args['graduationObj'] = graduationObj
-
-
-    if Internship.objects.filter(user=request.user):
-        internshipObj = list(Internship.objects.filter(user=request.user))
-        args['internshipObj']=internshipObj
-
-    if Projects.objects.filter(user=request.user):
-        projectsObj = list(Projects.objects.filter(user=request.user))
-        args['projectObj'] = projectsObj
-
-    if Job.objects.filter(user=request.user):
-        jobObj = list(Job.objects.filter(user=request.user))
-        args['jobObj']=jobObj
-
-    if Skills.objects.filter(user=request.user):
-        skillsObj = list(Skills.objects.filter(user=request.user))
-        args['skillsObj']=skillsObj
-
-
-
-
+    args=fetch(request)
     return render(request,'accounts/personal_details.html',args)
 
-
-
-
-
-def sendEmail(request):
-
-    args = {}
-    personalObj = PersonalDetails.objects.get(user=request.user)
-    print(personalObj.name)
-    args['personalObj'] = personalObj
-
-    if SecondaryDetails.objects.filter(user=request.user):
-        secondaryObj = list(SecondaryDetails.objects.filter(user=request.user))
-        args['secondaryObj'] = secondaryObj
-
-    if SeniorSecondaryDetails.objects.filter(user=request.user):
-        ssObj = list(SeniorSecondaryDetails.objects.filter(user=request.user))
-        args['ssObj'] = ssObj
-
-    if GraduationDetails.objects.filter(user=request.user):
-        graduationObj = list(GraduationDetails.objects.filter(user=request.user))
-        args['graduationObj'] = graduationObj
-
-    if Internship.objects.filter(user=request.user):
-        internshipObj = list(Internship.objects.filter(user=request.user))
-        args['internshipObj'] = internshipObj
-
-    if Projects.objects.filter(user=request.user):
-        projectsObj = list(Projects.objects.filter(user=request.user))
-        args['projectObj'] = projectsObj
-
-    if Job.objects.filter(user=request.user):
-        jobObj = list(Job.objects.filter(user=request.user))
-        args['jobObj'] = jobObj
-
+def sendEmail_1(request):
+    args=fetch(request)
     t = loader.get_template('accounts/pdf_template.html')
     c = Context(args)
     rendered = t.render(c)
@@ -516,11 +416,31 @@ def sendEmail(request):
     email = EmailMessage('Resume', 'hello','Anurag Harsh' , to=[request.user.email])
     try:
 
-        email.attach('Resume',pdf,'application/pdf')
+        email.attach(args['personalObj'].name+'( Resume)',pdf,'application/pdf')
         email.send()
-        return HttpResponse("E-Mail Sent Successfuly")
+        return HttpResponse("E-Mail Sent Successfully")
     except:
-        return HttpResponse("Error Occured")
+        return HttpResponse("Error Occurred")
+
+def sendEmail_2(request):
+    args=fetch(request)
+    t = loader.get_template('accounts/pdf_template2.html')
+    c = Context(args)
+    rendered = t.render(c)
+    rendered = str(rendered)
+    html = HTML(string=rendered)
+    main_doc = html.render()
+    pdf = main_doc.write_pdf()
+
+
+    email = EmailMessage('Resume', 'hello','Anurag Harsh' , to=[request.user.email])
+    try:
+
+        email.attach(args['personalObj'].name+'( Resume)',pdf,'application/pdf')
+        email.send()
+        return HttpResponse("E-Mail Sent Successfully")
+    except:
+        return HttpResponse("Error Occurred")
 
 
 

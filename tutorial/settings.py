@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+from setting_secret import *
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fus8xc@s^t#@a%+8=^2slc(lx2sq^n#-9akgvh4+jzkbkhjnu$'
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -130,6 +131,6 @@ EMAIL_PORT = 587
 
 EMAIL_HOST_USER = 'anuragharsh95@gmail.com'
 
-EMAIL_HOST_PASSWORD = '**********atsid'
+EMAIL_HOST_PASSWORD =gmail_password
 
 EMAIL_USE_TLS = True
