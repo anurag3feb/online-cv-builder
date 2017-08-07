@@ -15,7 +15,7 @@
     {% if personalObj is not defined %}
 
     <h2>{{ personalObj.name }}</h2><br>
-    <h4>Email:{{ email }}</h4>
+    <h4>Email:{{ request.user.email }}</h4>
     <h4>Conatct No:{{ personalObj.contact_no }}</h4>
     <h4>Location:{{ personalObj.location }}</h4>
     {% load static %}

@@ -258,6 +258,7 @@ def Skill(request):
 
 def generatePDF(request):
     args=fetch(request)
+    args['mail']=request.user.email
     t = loader.get_template('accounts/pdf_template.html')
     c = Context(args)
     rendered = t.render(c)
@@ -276,8 +277,9 @@ def chooseTemplate(request):
 
 def generatePDF2(request):
     args = fetch(request)
+    args['mail'] = request.user.email
     t = loader.get_template('accounts/pdf_template2.html')
-    c = Context(args)
+    c = Context(args,request)
     rendered = t.render(c)
     rendered = str(rendered)
     html = HTML(string=rendered)
