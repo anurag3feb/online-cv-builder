@@ -406,6 +406,7 @@ def personal_profile(request):
 
 def sendEmail_1(request):
     args=fetch(request)
+    args['mail'] = request.user.email
     t = loader.get_template('accounts/pdf_template.html')
     c = Context(args)
     rendered = t.render(c)
@@ -426,6 +427,7 @@ def sendEmail_1(request):
 
 def sendEmail_2(request):
     args=fetch(request)
+    args['mail'] = request.user.email
     t = loader.get_template('accounts/pdf_template2.html')
     c = Context(args)
     rendered = t.render(c)
