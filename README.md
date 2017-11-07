@@ -2,8 +2,7 @@
 Online CV Builder is an application that simplifies the task of creating a CV for individuals. The system is flexible to be used and reduces the need of thinking and designing an appropriate CV according to qualifications. The system is developed to provide an easy means for creating a professional looking CV. Individuals just have to fill up a form that specifies questions from all required fields such as personal details, educational details, projects,internships, skills and so on. The answers provided by the users are stored and the system automatically generates a well structured CV. Users have option to download CV in PDF format or receive on registered email address.
 
 
-It uses Django, a free and open-source web framework, written in Python, which follows the model-view-template (MVT) architectural pattern.It is maintained by the Django Software Foundation (DSF).
-Django emphasizes reusability of components, rapid development, and the principle of don't repeat yourself. Python is used throughout, even for settings files and data models.
+It uses Django, a free and open-source web framework, written in Python, which follows the model-view-template (MVT) architectural pattern.
 
 Installation Instructions
 	
