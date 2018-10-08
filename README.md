@@ -10,7 +10,7 @@ Prerequisites to run Online CV Builder on local machine consist of  Python3 and 
 
 a) . Use git clone to clone this repository to your local machine: 
 
-`$ git clone https://github.com/anurag3feb/online-cv-builder.git`
+`$ git clone https://github.com/anurag-bug/online-cv-builder.git`
 
 b.)  Change current directory
 
